@@ -21,8 +21,8 @@ $(document).ready(function() {
 
     // setting this variable equal to window[makeBlinkyDancer];
     var dancerMakerFunction = window[dancerMakerFunctionName];
-    console.log(dancerMakerFunctionName);
-    console.log(dancerMakerFunction);
+    // console.log(dancerMakerFunctionName);
+    // console.log(dancerMakerFunction);
 
     // make a dancer with a random position
 
