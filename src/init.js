@@ -49,29 +49,6 @@ $(document).ready(function () {
     }
   });
 
-  // var avoid = function () {
-  //   var direction = Math.ceil(Math.random() * Math.floor(4));
-  //   if (direction === 1) {
-  //     this.top -= 100;
-  //   } else if (direction === 2) {
-  //     this.left += 100;
-  //   } else if (direction === 3) {
-  //     this.top += 100;
-  //   } else if (direction === 4) {
-  //     this.left -= 100;
-  //   }
-  //   var styleSettings = {
-  //     top: top,
-  //     left: left,
-  //   };
-  //   console.log(top);
-  //   this.$node.css(styleSettings);
-  //   console.log('hello');
-  // };
-
-
-
-
   $('body').on('mouseover', '.nervous-dancer', function () {
 
     var nervousguy = window.dancers[this.id];

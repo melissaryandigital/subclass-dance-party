@@ -9,7 +9,6 @@ NervousDancer.prototype = Object.create(Dancer.prototype);
 NervousDancer.prototype.constructor = NervousDancer;
 
 NervousDancer.prototype.avoid = function() {
-  console.log(this.top);
   var direction = Math.ceil(Math.random() * Math.floor(4));
   if (direction === 1) {
     this.top -= 100;

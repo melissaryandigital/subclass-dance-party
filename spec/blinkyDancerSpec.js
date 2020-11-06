@@ -5,7 +5,7 @@ describe('blinkyDancer', function() {
 
   beforeEach(function() {
     clock = sinon.useFakeTimers();
-    blinkyDancer = BlinkyDancer(10, 20, timeBetweenSteps);
+    blinkyDancer = new BlinkyDancer(10, 20, timeBetweenSteps);
   });
 
   it('should have a jQuery $node object', function() {
@@ -31,4 +31,22 @@ describe('blinkyDancer', function() {
       expect(blinkyDancer.step.callCount).to.be.equal(2);
     });
   });
+});
+
+describe('nervousDancer', function() {
+  var nervousDancer, clock;
+  var timeBetweenSteps = 100;
+
+  beforeEach(function() {
+    clock = sinon.useFakeTimers();
+    nervousDancer = new NervousDancer(10, 20, timeBetweenSteps, 4);
+  });
+
+  it('should have an avoid function that moves the dancer away from mouse', function() {
+    //sinon.spy(nervousDancer.$node, 'toggle');
+    nervousDancer.avoid();
+    expect(nervousDancer.$node.avoid.called).to.be.true;
+  });
+
+
 });
