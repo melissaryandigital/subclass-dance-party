@@ -7,6 +7,19 @@ var NervousDancer = function (top, left, timeBetweenSteps) {
 NervousDancer.prototype = Object.create(Dancer.prototype);
 NervousDancer.prototype.constructor = NervousDancer;
 
+NervousDancer.prototype.avoid = function() {
+
+  // $("body").width() * Math.random(),
+  var direction = Math.ceil(Math.random() * Math.floor(4));
+
+  var styleSettings = {
+    top: top,
+    left: left,
+  };
+  this.$node.css(styleSettings);
+
+};
+
 
 // NervousDancer.prototype.step = function () {
 //   Dancer.prototype.step.call(this);
