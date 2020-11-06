@@ -34,7 +34,8 @@ $(document).ready(function () {
 
     // Inserts <span> on page
     $('body').append(dancer.$node);
-    window.dancers.push(dancer.$node);
+    window.dancers.push(dancer);
+    console.log(dancer);
   });
 
 
@@ -42,21 +43,53 @@ $(document).ready(function () {
   // LineUp
 
 
-
   // When line up button is clicked
-
-
-
   // Loop through the global dancers array
-  var lineUp = function () {
+  $('.lineUpButton').on('click', function () {
     for (var i = 0; i < window.dancers.length; i++) {
       // Change the top property to the same number
-      window.dancers[i].top = 100;
-      console.log('inside lineup');
+      window.dancers[i].lineUp();
     }
-  };
+  });
 
-  $('.lineUpButton').on('click', lineUp());
+  // Mouseover
+
+
+  // translateX(x)
+  // translateY(y)
 
 });
 
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+// $('.lineUpButton').on('click', function() {
+//   for (var i = 0; i < window.dancers.length; i++ ) {
+//     window.dancers[i].lineUp();
+//   }
+// });
+
+
+
+// $('body').on('mouseover', '.dancer',
+//   function () {
+//     console.log('MOUSEOVER TIME!');
+//     console.log(this);
+//   });
