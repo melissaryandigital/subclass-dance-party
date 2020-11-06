@@ -56,6 +56,7 @@ $(document).ready(function () {
 
 
   // translateX(x)
+
   // translateY(y)
 
 });
