@@ -1,6 +1,9 @@
 $(document).ready(function () {
   window.dancers = [];
 
+
+  var id = 0;
+
   $('.addDancerButton').on('click', function (event) {
     /* This function sets up the click handlers for the create-dancer
      * buttons on dancefloor.html. You should only need to make one small change to it.
@@ -21,26 +24,20 @@ $(document).ready(function () {
 
     // setting this variable equal to window[makeBlinkyDancer];
     var dancerMakerFunction = window[dancerMakerFunctionName];
-    // console.log(dancerMakerFunctionName);
-    // console.log(dancerMakerFunction);
 
-    // make a dancer with a random position
 
     var dancer = new dancerMakerFunction(
       $("body").height() * Math.random(),
       $("body").width() * Math.random(),
-      Math.random() * 1000
+      Math.random() * 1000,
+      id
     );
 
     // Inserts <span> on page
     $('body').append(dancer.$node);
     window.dancers.push(dancer);
-    console.log(dancer);
+    id++;
   });
-
-
-
-  // LineUp
 
 
   // When line up button is clicked
@@ -52,45 +49,40 @@ $(document).ready(function () {
     }
   });
 
-  // Mouseover
+  // var avoid = function () {
+  //   var direction = Math.ceil(Math.random() * Math.floor(4));
+  //   if (direction === 1) {
+  //     this.top -= 100;
+  //   } else if (direction === 2) {
+  //     this.left += 100;
+  //   } else if (direction === 3) {
+  //     this.top += 100;
+  //   } else if (direction === 4) {
+  //     this.left -= 100;
+  //   }
+  //   var styleSettings = {
+  //     top: top,
+  //     left: left,
+  //   };
+  //   console.log(top);
+  //   this.$node.css(styleSettings);
+  //   console.log('hello');
+  // };
 
 
-  // translateX(x)
 
-  // translateY(y)
+
+  $('body').on('mouseover', '.nervous-dancer', function () {
+
+    var nervousguy = window.dancers[this.id];
+    nervousguy.avoid();
+
+    // Each nervous dancer has an id
+    // mouseover function gets the id attribute
+    // window.dancers and find the object with the matching ID
+    // Call the avoid function on that particular object
+
+  });
+
 
 });
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-// $('.lineUpButton').on('click', function() {
-//   for (var i = 0; i < window.dancers.length; i++ ) {
-//     window.dancers[i].lineUp();
-//   }
-// });
-
-
-
-// $('body').on('mouseover', '.dancer',
-//   function () {
-//     console.log('MOUSEOVER TIME!');
-//     console.log(this);
-//   });

@@ -68,3 +68,9 @@ figure {
   100% {transform: rotate(270deg); }
 }
 
+.nervous-dancer {
+  background-image: url('src/img/breakdancer1.png');
+  width: 300px;
+  height: 300px;
+  position: absolute;
+}
