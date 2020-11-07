@@ -42,11 +42,36 @@ describe('nervousDancer', function() {
     nervousDancer = new NervousDancer(10, 20, timeBetweenSteps, 4);
   });
 
-  it('should have an avoid function that moves the dancer away from mouse', function() {
-    //sinon.spy(nervousDancer.$node, 'toggle');
+
+  it('NEW TEST: should have an avoid function that moves the dancer away from mouse', function() {
+    sinon.spy(nervousDancer, 'avoid');
     nervousDancer.avoid();
-    expect(nervousDancer.$node.avoid.called).to.be.true;
+    expect(nervousDancer.avoid.called).to.be.true;
   });
 
+});
+
+describe('allDancers', function() {
+
+  var blinkyDancer, clock;
+  var timeBetweenSteps = 100;
+
+
+  beforeEach(function() {
+    clock = sinon.useFakeTimers();
+    var blinky = new BlinkyDancer(10, 20, timeBetweenSteps);
+    var spinner = new SpinningDancer(40, 50, timeBetweenSteps);
+    var flipper = new FlippingDancer(60, 70, timeBetweenSteps);
+    var nervous = new NervousDancer(60, 70, timeBetweenSteps);
+  });
+
+
+  it('NEW TEST: every dancer should have a unique id property', function() {
+    var dancerSet = new Set();
+    for (i = 0; i < window.dancers.length; i++) {
+      dancerSet.add(window.dancers[i].dancerId);
+    }
+    expect(dancerSet.size).to.equal(window.dancers.length);
+  });
 
 });

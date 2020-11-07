@@ -1,4 +1,4 @@
-var SpinningDancer = function (top, left, timeBetweenSteps) {
+var SpinningDancer = function (top, left, timeBetweenSteps, dancerId) {
   Dancer.call(this, top, left, timeBetweenSteps);
   this.$node.removeClass('dancer').addClass('spinning-dancer');
 };
