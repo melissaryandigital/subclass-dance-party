@@ -55,11 +55,6 @@ Dancer.prototype.lineUp = function() {
 
 
 
-
-
-
-
-
 // Dancer.prototype.lineUp = function() {
 //   var styleSettings = {
 //     top: 100

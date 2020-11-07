@@ -1,7 +1,7 @@
 $(document).ready(function () {
   window.dancers = [];
 
-
+  // Assigns an ID to all dancers
   var id = 0;
 
   $('.addDancerButton').on('click', function (event) {
@@ -19,12 +19,7 @@ $(document).ready(function () {
      * to the stage.
      */
     var dancerMakerFunctionName = $(this).data('dancer-maker-function-name');
-
-    // get the maker function for the kind of dancer we're supposed to make
-
-    // setting this variable equal to window[makeBlinkyDancer];
     var dancerMakerFunction = window[dancerMakerFunctionName];
-
 
     var dancer = new dancerMakerFunction(
       $("body").height() * Math.random(),
@@ -33,15 +28,44 @@ $(document).ready(function () {
       id
     );
 
-    // Inserts <span> on page
     $('body').append(dancer.$node);
     window.dancers.push(dancer);
     id++;
+
+
+    // Dancer Interaction
+
+    // If a new nervous dancer is added
+    // And two nervous dancers are within 300 pixels of each other
+    // Add a class to them that rotates them quickly
+    // Then hides them
+
+    if (dancerMakerFunctionName === 'spinning-dancer') {
+
+      // Get the position of new added nervous dancer
+      // jquery position() returns the top and left keys
+      // Identify the left and top positions
+
+      // Iterate through existing window dancers
+      for (var dancer in window.dancers) {
+        // If they are a nervous dancer
+        // Return its position
+        // Use the distance equation to determine distance between new and current dancer
+        // If distance < XXX pixels
+        // Invoke animation method on nervous dancer --- or use jQuery to add class
+        // Add CSS styles if needed
+
+
+      }
+    }
+
+
+
   });
 
 
-  // When line up button is clicked
-  // Loop through the global dancers array
+  // Line Up Button Interaction
+
   $('.lineUpButton').on('click', function () {
     for (var i = 0; i < window.dancers.length; i++) {
       // Change the top property to the same number
@@ -49,17 +73,24 @@ $(document).ready(function () {
     }
   });
 
+
+  // Mouseover Interaction
+
   $('body').on('mouseover', '.nervous-dancer', function () {
+
+    // Each nervous dancer has an id
+    // Mouseover function gets the id attribute
+    // Window.dancers and find the object with the matching ID
+    // Call the avoid method on that particular object
 
     var nervousguy = window.dancers[this.id];
     nervousguy.avoid();
 
-    // Each nervous dancer has an id
-    // mouseover function gets the id attribute
-    // window.dancers and find the object with the matching ID
-    // Call the avoid function on that particular object
-
   });
+
+
+
+
 
 
 });
