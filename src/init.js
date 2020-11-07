@@ -34,33 +34,13 @@ $(document).ready(function () {
 
 
     // Dancer Interaction
-
     // If a new nervous dancer is added
     // And two nervous dancers are within 300 pixels of each other
     // Add a class to them that rotates them quickly
     // Then hides them
-
-    if (dancerMakerFunctionName === 'spinning-dancer') {
-
-      // Get the position of new added nervous dancer
-      // jquery position() returns the top and left keys
-      // Identify the left and top positions
-
-      // Iterate through existing window dancers
-      for (var dancer in window.dancers) {
-        // If they are a nervous dancer
-        // Return its position
-        // Use the distance equation to determine distance between new and current dancer
-        // If distance < XXX pixels
-        // Invoke animation method on nervous dancer --- or use jQuery to add class
-        // Add CSS styles if needed
-
-
-      }
+    if (dancerMakerFunctionName === 'NervousDancer') {
+      interaction(dancer);
     }
-
-
-
   });
 
 
@@ -88,9 +68,28 @@ $(document).ready(function () {
 
   });
 
+  var interaction = function (dancer) {
+    console.log('hello');
 
+    // Get the position of new added nervous dancer
+    //var nervous1 = dancer
+    var nervous1topPx = dancer.top;
+    var nervous1leftPx = dancer.left;
+    console.log('top and left = ' + nervous1topPx + ', ' + nervous1leftPx);
 
+    // jquery position() returns the top and left keys
+    // Identify the left and top positions
 
+    // Iterate through existing window dancers
+    for (var dancer in window.dancers) {
+      // If they are a nervous dancer
+      // Return its position
+      // Use the distance equation to determine distance between new and current dancer
+      // If distance < XXX pixels
+      // Invoke animation method on nervous dancer --- or use jQuery to add class
+      // Add CSS styles if needed
+    }
 
+  };
 
 });
