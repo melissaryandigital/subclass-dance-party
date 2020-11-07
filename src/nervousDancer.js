@@ -1,8 +1,9 @@
 var NervousDancer = function (top, left, timeBetweenSteps, dancerId) {
   Dancer.call(this, top, left, timeBetweenSteps);
-  this.$node.removeClass("dancer").addClass("nervous-dancer");
+  this.$node.removeClass('dancer').addClass('nervous-dancer');
   this.dancerId = dancerId;
   this.$node.attr('id', dancerId);
+  this.class = 'nervous';
 };
 
 NervousDancer.prototype = Object.create(Dancer.prototype);

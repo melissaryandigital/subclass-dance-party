@@ -32,32 +32,3 @@ Dancer.prototype.lineUp = function() {
   };
   this.$node.css(styleSettings);
 };
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-// Dancer.prototype.lineUp = function() {
-//   var styleSettings = {
-//     top: 100
-//   };
-//   this.$node.css(styleSettings);
-// };

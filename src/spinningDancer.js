@@ -1,6 +1,6 @@
 var SpinningDancer = function (top, left, timeBetweenSteps) {
   Dancer.call(this, top, left, timeBetweenSteps);
-  this.$node.removeClass("dancer").addClass("spinning-dancer");
+  this.$node.removeClass('dancer').addClass('spinning-dancer');
 };
 
 SpinningDancer.prototype = Object.create(Dancer.prototype);

@@ -33,11 +33,8 @@ $(document).ready(function () {
     id++;
 
 
-    // Dancer Interaction
-    // If a new nervous dancer is added
-    // And two nervous dancers are within 300 pixels of each other
-    // Add a class to them that rotates them quickly
-    // Then hides them
+    // Dancer Interaction Call
+
     if (dancerMakerFunctionName === 'NervousDancer') {
       interaction(dancer);
     }
@@ -48,7 +45,6 @@ $(document).ready(function () {
 
   $('.lineUpButton').on('click', function () {
     for (var i = 0; i < window.dancers.length; i++) {
-      // Change the top property to the same number
       window.dancers[i].lineUp();
     }
   });
@@ -60,7 +56,7 @@ $(document).ready(function () {
 
     // Each nervous dancer has an id
     // Mouseover function gets the id attribute
-    // Window.dancers and find the object with the matching ID
+    // Look in window.dancers and find the object with the matching ID
     // Call the avoid method on that particular object
 
     var nervousguy = window.dancers[this.id];
@@ -69,27 +65,24 @@ $(document).ready(function () {
   });
 
   var interaction = function (dancer) {
-    console.log('hello');
-
-    // Get the position of new added nervous dancer
-    //var nervous1 = dancer
-    var nervous1topPx = dancer.top;
-    var nervous1leftPx = dancer.left;
-    console.log('top and left = ' + nervous1topPx + ', ' + nervous1leftPx);
-
-    // jquery position() returns the top and left keys
-    // Identify the left and top positions
 
     // Iterate through existing window dancers
-    for (var dancer in window.dancers) {
-      // If they are a nervous dancer
-      // Return its position
-      // Use the distance equation to determine distance between new and current dancer
-      // If distance < XXX pixels
-      // Invoke animation method on nervous dancer --- or use jQuery to add class
-      // Add CSS styles if needed
+    for (var i = 0; i < window.dancers.length; i++) {
+      var person = window.dancers[i];
+
+      if (dancer.dancerId !== person.dancerId && person.class === 'nervous') {
+
+        let topDist2 = Math.pow(Math.abs(dancer.top - person.top), 2);
+        let leftDist2 = Math.pow(Math.abs(dancer.left - person.left), 2);
+        var distance = Math.sqrt(topDist2 + leftDist2);
+
+        if (distance < 400) {
+          person.$node.fadeOut('slow');
+          // change opacity
+          // or .fadeOut();
+          // we could throw up an alert too that says 'yikes, I spawned too close, I don't like this!' or something silly like that if we wanted to draw more attention to it
+        }
+      }
     }
-
   };
-
 });
